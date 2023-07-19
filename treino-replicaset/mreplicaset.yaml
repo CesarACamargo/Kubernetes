@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: frontend-rs
+  labels:
+    app: frontend
+
+spec:
+  template:
+    metadata:
+      name: mpod-webserver
+      labels:
+        apps: mapp
+        tier: frontend
+    spec:
+      containers:
+        - name: mpod-container-nginx
+          image: nginx
+
+  selector:
+    matchLabels:
+      apps: mapp
+  replicas: 10

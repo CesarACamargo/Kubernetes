@@ -1,0 +1,13 @@
+apiVersion:
+kind: Pod
+
+metadata:
+  name: redis-pod
+  namespace: backend-ns ### Definição do campo namespace =)
+  labels:
+    apps: backend
+
+spec:
+  container:
+    - name: redis-container
+      image: redis
